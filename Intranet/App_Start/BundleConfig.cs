@@ -21,14 +21,19 @@ namespace Intranet
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/table.js",
+"~/Scripts/jquery.dataTables.min.js"));
 
             //bundles.Add(new StyleBundle("~/Content/css").Include(
-              //        "~/Content/bootstrap.css",
-                //}      "~/Content/site.css"));
+            //        "~/Content/bootstrap.css",
+            //}      "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/estilos").Include(
-           "~/Content/PardoStyle.css"));
+           "~/Content/PardoStyle.css",
+           "~/Content/jquery.dataTables.css"));
+
+
         }
     }
 }
