@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Intranet.Models.Clases.Empleado>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Trabajar Con Empleados</h2>
+
+<div class="cuerpo tablaPAR-emple">
+
+    <table id="tabla" class="cell-border" cellspacing="0">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.sucursal.dessuc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodVen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FuncionP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FuncionS)
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.sucursal.dessuc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CodVen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FuncionP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FuncionS)
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </tfoot>
+
+        <tbody>
+            @foreach (var item in Model)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sucursal.dessuc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodVen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FuncionP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FuncionS)
+                </td>
+                <td>
+                    <a href='@Url.Action("Details", "Empleado" ,new { id = item.Email })'>
+                        <img src="~/Content/img/detalle.png" width="20" height="20" />
+                    </a>
+                </td>
+                <td>
+                    <a href='@Url.Action("Edit", "Empleado" ,new {id = item.Email})'>
+                        <img src="~/Content/img/editar.png" width="20" height="20" />
+                    </a>
+                </td>
+                <td>
+                    <a href='@Url.Action("Delete", "Empleado" ,new {id = item.Email})'>
+                        <img src="~/Content/img/Baja.png" width="20" height="20" />
+                    </a>
+                </td>
+
+            </tr>
+}
+        </tbody>
+    </table>
+</div>
+

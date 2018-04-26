@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @Styles.Render("~/Content/estilos")
+</head>
+
+<body>
+    <div class="cabecera">
+        <nav class="cabeceraPAR">
+            <!--Parte del logo-->
+            <div class="cabeceraPAR_header">
+                <img src="~/Content/img/Pardo1.png" />
+            </div>
+            <!-- Links de Navegación y botones -->
+            <div class="cabeceraPAR_collapse">
+                <ul class="cabeceraPAR_nav"></ul>
+                <ul class="cabeceraPAR_navderecha">
+                    @if (Session["Codusr"] != null)
+                    {
+                        <li class="cabeceraPAR_dropdown">
+                            <a href="#" class="cabeceraPAR_dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  @Session["Codusr"].ToString()<span class="caret"></span></a>
+                            <ul class="cabeceraPAR_dropdown-menu">
+                                <li><a href="/Login/Salir"><span class="glyphicon glyphicon-log-out" aria-hidden="true">   Desconectarse</span></a></li>
+                            </ul><!--cabeceraPAR_dropdown-menu-->
+                        </li><!--cabeceraPAR_dropdown-->
+                    }
+                </ul><!--cabeceraPAR_navderecha -->
+            </div><!-- cabeceraPAR_collapse -->
+        </nav><!-- cabeceraPAR-->
+    </div>
+    <div class="cuerpo">
+        @if (Session["Codusr"] != null)
+        {
+        <nav class="menuPAR-izq" role="navigation">
+            <div class="menuPAR-izq-container">
+                <div class="menuPAR-izq-collapse">
+                    <ul class="menuPAR-izq-nav">
+                        @if (ViewBag.zona == 1)
+    {
+                    <li><a href="/home/index" class="menuPAR-izq-active">HOME<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+}
+else
+{
+                    <li><a href="/home/index">HOME<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+}
+
+                        @if (ViewBag.zona == 2)
+    {
+                    <li><a href="/home/About" class="menuPAR-izq-active">ABOUT<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+}
+else
+{
+                    <li><a href="/home/About">ABOUT<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+}
+
+                        @if (ViewBag.zona == 3)
+    {
+                    <li><a href="/home/contact" class="menuPAR-izq-active">CONTACTO<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon 	glyphicon glyphicon-exclamation-sign"></span></a></li>
+}
+else
+{
+                    <li><a href="/home/contact">CONTACTO<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon 	glyphicon glyphicon-exclamation-sign"></span></a></li>
+}
+                        @if ((ViewBag.zona == 41) || (ViewBag.zona == 42))
+    {
+                    <li class="menuPAR-izq_dropdown open">
+                        <a href="#" class="menuPAR-izq_dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            TABLAS
+                            <span class="menuPAR-izq-caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="menuPAR-izq_dropdown-menu" role="menu">
+                            @if (ViewBag.zona == 41)
+    {
+                        <li class="menuPAR-izq-active-niv2"><a href="/Empleado/index"><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span> EMPLEADOS</a></li>
+}
+else
+{
+                        <li><a href="/Empleado/index"><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span> EMPLEADOS</a></li>
+}
+
+                            @if (ViewBag.zona == 42)
+    {
+                        <li class="menuPAR-izq-active-niv2"><a href="/home/User2"> SUBMENU 2</a></li>
+}
+else
+{
+                        <li><a href="/home/User2"> SUBMENU 2</a></li>
+}
+                        </ul>
+
+                    </li>
+}
+else
+{
+                    <li class="menuPAR-izq_dropdown">
+                        <a href="#" class="menuPAR-izq_dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            TABLAS
+                            <span class="menuPAR-izq-caret" aria-hidden="true"></span>
+                        </a>
+                        <ul class="menuPAR-izq_dropdown-menu" role="menu">
+                            <li><a href="/Empleado/index"><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span>EMPLEADOS</a></li>
+                            <li><a href="/home/User2"> SUBMENU 2</a></li>
+                        </ul>
+
+                    </li>
+}
+
+                    </ul>
+                </div><!--menuPAR-izq-collapse-->
+            </div><!--menuPAR-izq-container-->
+        </nav>
+        }
+                   @RenderBody()
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div><!--cuerpo-->
+
+</body>
+</html>
