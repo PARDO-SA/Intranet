@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Trabajar Con Empleados</h2>
+<h2 align="center">Trabajar Con Empleados</h2>
 
 <div class="cuerpo tablaPAR-emple">
 
-    <table id="tabla" class="display compact cell-border" cellspacing="0">
+    <table id="tabla" class="cell-border display compact" cellspacing="0">
         <thead>
             <tr>
                 <th>
@@ -39,35 +39,6 @@
 
             </tr>
         </thead>
-
-        <tfoot>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.sucursal.dessuc)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CodVen)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FuncionP)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FuncionS)
-                </th>
-                <th>
-
-                </th>
-                <th>
-
-                </th>
-                <th>
-
-                </th>
-            </tr>
-        </tfoot>
 
         <tbody>
             @foreach (var item in Model)
