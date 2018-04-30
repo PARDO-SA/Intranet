@@ -12,11 +12,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.sucursal.dessuc)
+            @Html.DisplayNameFor(model => model.Legajo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.sucursal.dessuc)
+            @Html.DisplayFor(model => model.Legajo)
         </dd>
 
         <dt>
@@ -28,11 +28,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CodVen)
+            @Html.DisplayNameFor(model => model.Email)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CodVen)
+            @Html.DisplayFor(model => model.Email)
         </dd>
 
         <dt>
@@ -52,6 +52,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.CodVen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodVen)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Inactivo)
         </dt>
 
@@ -62,6 +70,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Email }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Legajo }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

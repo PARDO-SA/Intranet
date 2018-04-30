@@ -13,19 +13,19 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.sucursal.dessuc)
+                    @Html.DisplayNameFor(model => model.Legajo)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Nombre)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CodVen)
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.sucursal.dessuc)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.FuncionP)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FuncionS)
                 </th>
                 <th>
 
@@ -45,33 +45,34 @@
     {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.sucursal.dessuc)
+                    @Html.DisplayFor(modelItem => item.Legajo)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CodVen)
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sucursal.dessuc)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FuncionP)
                 </td>
+
                 <td>
-                    @Html.DisplayFor(modelItem => item.FuncionS)
-                </td>
-                <td>
-                    <a href='@Url.Action("Details", "Empleado" ,new { id = item.Email })'>
-                        <img src="~/Content/img/detalle.png" width="20" height="20" />
+                    <a href='@Url.Action("Details", "Empleado" ,new { id = item.Legajo })'>
+                        <img src="~/Content/img/detalle1.png" title="Ver" width="20" height="20" />
                     </a>
                 </td>
                 <td>
                     <a href='@Url.Action("Edit", "Empleado" ,new {id = item.Email})'>
-                        <img src="~/Content/img/editar.png" width="20" height="20" />
+                        <img src="~/Content/img/editar.png" title="Editar" width="20" height="20" />
                     </a>
                 </td>
                 <td>
                     <a href='@Url.Action("Delete", "Empleado" ,new {id = item.Email})'>
-                        <img src="~/Content/img/Baja.png" width="20" height="20" />
+                        <img src="~/Content/img/Baja.png" title="Borrar" width="20" height="20" />
                     </a>
                 </td>
 

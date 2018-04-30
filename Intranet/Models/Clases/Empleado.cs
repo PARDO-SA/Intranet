@@ -11,6 +11,9 @@ namespace Intranet.Models.Clases
         public class Empleado
         {
             [Key]
+            [Display(Name = "Legajo")]
+            public int Legajo { get; set; }
+            
             [Display(Name = "Email")]
             [StringLength(50)]
             public string Email { get; set; }
@@ -28,7 +31,7 @@ namespace Intranet.Models.Clases
             [StringLength(3)]
             public string CodSuc { get; set; }
 
-            [Display(Name = "Función Primaria")]
+            [Display(Name = "Función")]
             [StringLength(10)]
             public string FuncionP { get; set; }
 

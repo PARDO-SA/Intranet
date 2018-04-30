@@ -24,9 +24,9 @@ namespace Intranet.Controllers.Clases
         }
 
         // GET: Empleado/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
