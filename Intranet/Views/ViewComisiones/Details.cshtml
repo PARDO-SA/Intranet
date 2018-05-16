@@ -1,0 +1,83 @@
+﻿@model Intranet.Models.Clases.Consultas.ViewComisiones
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ViewComisiones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sucursal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sucursal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SucursalNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SucursalNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cobrado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cobrado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComisionVen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComisionVen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComisionSuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComisionSuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACobrar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACobrar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RestaCobrar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RestaCobrar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Nombre }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

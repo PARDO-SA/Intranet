@@ -5,123 +5,74 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="editPAR-titprin">Edit</h2>
-
+<h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Empleado</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Email)
 
-<div class="editPAR-formhori">
-    <h4 class="editPAR-titsec">Empleado</h4>
-
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-    <div class="editPAR-formgroup">
-        @Html.LabelFor(model => model.Legajo, htmlAttributes: new { @class = "editPAR-control-label" })
-        <div class="editPAR-col-m10">
-            @Html.EditorFor(model => model.Legajo, new { htmlAttributes = new { @class = "editPAR-input-line-disabled", @readonly = "readonly" } })
-            @Html.ValidationMessageFor(model => model.Legajo, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="editPAR-formgroup">
-        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "editPAR-control-label" })
-        <div class="editPAR-col-m10">
-            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "editPAR-input-line" } })
-            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="editPAR-formgroup">
-        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "editPAR-control-label" })
-        <div class="editPAR-col-m10">
-            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "editPAR-input-line" } })
-            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="editPAR-formgroup">
-        @Html.LabelFor(model => model.CodVen, htmlAttributes: new { @class = "editPAR-control-label" })
-        <div class="editPAR-col-m10">
-            @Html.EditorFor(model => model.CodVen, new { htmlAttributes = new { @class = "editPAR-input-line" } })
-            @Html.ValidationMessageFor(model => model.CodVen, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="editPAR-formgroup">
-        @Html.LabelFor(model => model.CodSuc, htmlAttributes: new { @class = "editPAR-control-label" })
-        <div class="editPAR-col-m10">
-            @Html.DropDownList("CodSuc", null, htmlAttributes: new { @class = "editPAR-input-line" })
-            @Html.ValidationMessageFor(model => model.CodSuc, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-        <div class="editPAR-formgroup">
-            @Html.LabelFor(model => model.FuncionP, htmlAttributes: new { @class = "editPAR-control-label" })
-            <div class="editPAR-col-m10">
-                @Html.DropDownList("FuncionP", new List<SelectListItem>
-
-    {
-
-    new SelectListItem{ Text="Defecto", Value = Model.FuncionP.ToString()  },
-    new SelectListItem{ Text="Caja", Value = "Caja" },
-    }, new { htmlAttributes = new { @class = "editPAR-input-line" } })
-                @Html.ValidationMessageFor(model => model.FuncionP, "", new { @class = "text-danger" })
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="editPAR-formgroup">
-            @Html.LabelFor(model => model.FuncionS, htmlAttributes: new { @class = "editPAR-control-label" })
-            <div class="editPAR-col-m10">
-                @Html.DropDownList("FuncionS", new List<SelectListItem>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CodVen, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CodVen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CodVen, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-{
+        <div class="form-group">
+            @Html.LabelFor(model => model.CodSuc, "CodSuc", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CodSuc", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CodSuc, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-new SelectListItem{ Text="Defecto", Value = Model.FuncionP.ToString()  },
-new SelectListItem{ Text="Caja", Value = "Caja" },
-}, new { htmlAttributes = new { @class = "editPAR-input-line" } })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FuncionP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FuncionP, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FuncionP, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FuncionS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FuncionS, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FuncionS, "", new { @class = "text-danger" })
             </div>
         </div>
 
-
-        <div class="editPAR-formgroup">
-            @Html.LabelFor(model => model.Inactivo, htmlAttributes: new { @class = "editPAR-control-label" })
-
-            <div class="editPAR-col-m10">
-                <div class="editPAR-formgroup2" id="status" data-toggle="buttons">
-                    @if (Model.Inactivo == false)
-    {
-                <label class="btn btn-default btn-on btn-xs active">
-                    @Html.RadioButtonFor(model => model.Inactivo, "false") ACTIVO
-                </label>
-                <label class="btn btn-default btn-off btn-xs ">
-                    @Html.RadioButtonFor(model => model.Inactivo, "true") INACTIVO
-                </label>
-}
-else
-{
-                <label class="btn btn-default btn-on btn-xs ">
-                    @Html.RadioButtonFor(model => model.Inactivo, "false") ACTIVO
-                </label>
-                <label class="btn btn-default btn-off btn-xs active ">
-                    @Html.RadioButtonFor(model => model.Inactivo, "true") INACTIVO
-                </label>
-}
+        <div class="form-group">
+            @Html.LabelFor(model => model.Inactivo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Inactivo)
+                    @Html.ValidationMessageFor(model => model.Inactivo, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
 
-
-
-    <div class="editPAR-formgroup">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Aplicar Cambios" class="btn btn-default" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
         </div>
     </div>
-</div>
 }
 
 <div>

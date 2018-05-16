@@ -6,118 +6,131 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Intranet.Models.Clases.Consultas;
 using Intranet.Models.Clases;
 using Intranet.Models.Contexto;
+using System.Data.SqlClient;
 
-namespace Intranet.Controllers.Clases
+namespace Intranet.Controllers.Clases.Consultas
 {
-    public class EmpleadoController : Controller
+    public class ViewComisionesController : Controller
     {
         private CentralDBContexto db = new CentralDBContexto();
 
-        // GET: Empleado
+        // GET: ViewComisiones
         public ActionResult Index()
         {
             ViewBag.Zona = 41;
-            var empleados = db.Empleados.Include(e => e.sucursal);
-            return View(empleados.ToList());
+            var anio = "2028";
+            var mes = "04";
+            //var lects = new List<ViewComisiones>();
+
+            /*
+            var lects = db.Database.SqlQuery<ViewComisiones>("PAR_ViewComisiones {0}, {1}",
+                    //new SqlParameter("anio", anio),
+                    //new SqlParameter("mes", mes)
+                    new object[] { anio, mes }
+                    ).ToList();
+            */
+            var lects = db.Database.SqlQuery<ViewComisiones>(
+    "PAR_ViewComisiones @param1, @param2",
+    new SqlParameter("param1", anio),
+    new SqlParameter("param2", mes)
+);
+            return View(lects.ToList());
         }
 
-        // GET: Empleado/Details/5
-        public ActionResult Details(int id)
+        // GET: ViewComisiones/Details/5
+        public ActionResult Details(string id)
         {
-            if (id == 0)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
+            ViewComisiones viewComisiones = db.ViewComisiones.Find(id);
+            if (viewComisiones == null)
             {
                 return HttpNotFound();
             }
-            return View(empleado);
+            return View(viewComisiones);
         }
 
-        // GET: Empleado/Create
+        // GET: ViewComisiones/Create
         public ActionResult Create()
         {
-            ViewBag.CodSuc = new SelectList(db.Sucursales, "CodSuc", "dessuc");
             return View();
         }
 
-        // POST: Empleado/Create
+        // POST: ViewComisiones/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Email,Nombre,CodVen,CodSuc,FuncionP,FuncionS,Inactivo")] Empleado empleado)
+        public ActionResult Create([Bind(Include = "Nombre,Sucursal,SucursalNombre,Funcion,Cobrado,ComisionVen,ComisionSuc,ACobrar,RestaCobrar")] ViewComisiones viewComisiones)
         {
             if (ModelState.IsValid)
             {
-                db.Empleados.Add(empleado);
+                db.ViewComisiones.Add(viewComisiones);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CodSuc = new SelectList(db.Sucursales, "CodSuc", "dessuc", empleado.CodSuc);
-            return View(empleado);
+            return View(viewComisiones);
         }
 
-        // GET: Empleado/Edit/5
+        // GET: ViewComisiones/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
+            ViewComisiones viewComisiones = db.ViewComisiones.Find(id);
+            if (viewComisiones == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CodSuc = new SelectList(db.Sucursales, "CodSuc", "dessuc", empleado.CodSuc);
-            return View(empleado);
+            return View(viewComisiones);
         }
 
-        // POST: Empleado/Edit/5
+        // POST: ViewComisiones/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Email,Nombre,CodVen,CodSuc,FuncionP,FuncionS,Inactivo")] Empleado empleado)
+        public ActionResult Edit([Bind(Include = "Nombre,Sucursal,SucursalNombre,Funcion,Cobrado,ComisionVen,ComisionSuc,ACobrar,RestaCobrar")] ViewComisiones viewComisiones)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(empleado).State = EntityState.Modified;
+                db.Entry(viewComisiones).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CodSuc = new SelectList(db.Sucursales, "CodSuc", "dessuc", empleado.CodSuc);
-            return View(empleado);
+            return View(viewComisiones);
         }
 
-        // GET: Empleado/Delete/5
+        // GET: ViewComisiones/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
+            ViewComisiones viewComisiones = db.ViewComisiones.Find(id);
+            if (viewComisiones == null)
             {
                 return HttpNotFound();
             }
-            return View(empleado);
+            return View(viewComisiones);
         }
 
-        // POST: Empleado/Delete/5
+        // POST: ViewComisiones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Empleado empleado = db.Empleados.Find(id);
-            db.Empleados.Remove(empleado);
+            ViewComisiones viewComisiones = db.ViewComisiones.Find(id);
+            db.ViewComisiones.Remove(viewComisiones);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
