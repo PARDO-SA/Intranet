@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using Intranet.Models.Clases;
-using Intranet.Models.Clases.Consultas;
 
 namespace Intranet.Models.Contexto
 {
@@ -12,6 +11,6 @@ namespace Intranet.Models.Contexto
     {
         public DbSet<Empleado> Empleados { get; set; }
         public DbSet<Sucursal> Sucursales { get; set; }
-        public DbSet<ViewComisiones> ViewComisiones { get; set; }
+        public DbSet<Funcion> Funciones { get; set; }
     }
 }

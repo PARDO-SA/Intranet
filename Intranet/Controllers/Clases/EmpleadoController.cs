@@ -19,7 +19,7 @@ namespace Intranet.Controllers.Clases
         public ActionResult Index()
         {
             ViewBag.Zona = 41;
-            var empleados = db.Empleados.Include(e => e.sucursal);
+            var empleados = db.Empleados.Include(e => e.fprincipal);
             return View(empleados.ToList());
         }
 
@@ -64,9 +64,9 @@ namespace Intranet.Controllers.Clases
         }
 
         // GET: Empleado/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            if (id == 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -84,7 +84,7 @@ namespace Intranet.Controllers.Clases
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Email,Nombre,CodVen,CodSuc,FuncionP,FuncionS,Inactivo")] Empleado empleado)
+        public ActionResult Edit([Bind(Include = "Legajo,Email,Nombre,CodVen,CodSuc,FuncionP,FuncionS,Inactivo")] Empleado empleado)
         {
             if (ModelState.IsValid)
             {
