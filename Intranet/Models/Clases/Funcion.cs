@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Intranet.Models.Clases
 {
     [Table("PAR_FuncionEmple")]
-    public class Funcion
+    public class FuncionEmple
     {
         [Key]
         [Display(Name = "Código")]
