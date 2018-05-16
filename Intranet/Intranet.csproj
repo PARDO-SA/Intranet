@@ -155,6 +155,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Clases\Empleado.cs" />
+    <Compile Include="Models\Clases\Funcion.cs" />
     <Compile Include="Models\Clases\Sucursal.cs" />
     <Compile Include="Models\Contexto\CentralDBContexto.cs" />
     <Compile Include="Models\Contexto\SistemaDBContexto.cs" />
