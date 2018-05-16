@@ -11,6 +11,6 @@ namespace Intranet.Models.Contexto
     {
         public DbSet<Empleado> Empleados { get; set; }
         public DbSet<Sucursal> Sucursales { get; set; }
-        public DbSet<Funcion> Funciones { get; set; }
+        public DbSet<FuncionEmple> Funciones { get; set; }
     }
 }

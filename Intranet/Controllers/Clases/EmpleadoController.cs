@@ -19,7 +19,7 @@ namespace Intranet.Controllers.Clases
         public ActionResult Index()
         {
             ViewBag.Zona = 41;
-            var empleados = db.Empleados.Include(e => e.fprincipal);
+            var empleados = db.Empleados;//.Include(e => e.FPrincipal);
             return View(empleados.ToList());
         }
 

@@ -17,10 +17,10 @@ namespace Intranet.Models.Clases
 
         [Display(Name = "Sucursal")]
         [StringLength(30)]
-        public string dessuc { get; set; }
+        public string Dessuc { get; set; }
 
         [Display(Name = "Estado")]
-        public Boolean inactivo { get; set; }
+        public bool Inactivo { get; set; }
     }
 }
 

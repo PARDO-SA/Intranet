@@ -20,31 +20,29 @@ namespace Intranet.Models.Clases
 
             [Display(Name = "Nombre")]
             [StringLength(50)]
-            public string  Nombre{ get; set; }
+            public string Nombre { get; set; }
 
             [Display(Name = "Cod. Vendedor")]
             [StringLength(4)]
             public string CodVen { get; set; }
 
-    
-           [Display(Name = "Cod. Sucursal")]
-           [StringLength(3)]
-           public string CodSuc { get; set; }
+            [ForeignKey("Sucursal")]
+            [Display(Name = "Sucursal")]
+            [StringLength(3)]
+            public string CodSuc { get; set; }
 
-           
+            [ForeignKey("FuncionPri")]
+            [Display(Name = "Función")]
+            public int FuncionP { get; set; }
 
-           [Display(Name = "Función")]
-           public int FuncionP { get; set; }
-
-           [Display(Name = "Función Secundaria")]
-           public int? FuncionS { get; set; }
+            [Display(Name = "Función Secundaria")]
+            public int? FuncionS { get; set; }
          
             [Display(Name = "Estado")]
-            public Boolean Inactivo { get; set; }
+            public bool Inactivo { get; set; }
 
-            public virtual Sucursal sucursal { get; set; }
-        public virtual Funcion fprincipal { get; set; }
+            public virtual Sucursal Sucursal { get; set; }
+            public virtual FuncionEmple FuncionPri { get; set; }
 
-
-    }
+        }
  }
