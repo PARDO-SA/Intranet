@@ -151,9 +151,11 @@
     <Compile Include="Controllers\Clases\EmpleadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\Clases\Consultas\ViewComisionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Clases\Consultas\ViewComisiones.cs" />
     <Compile Include="Models\Clases\Empleado.cs" />
     <Compile Include="Models\Clases\Funcion.cs" />
     <Compile Include="Models\Clases\Sucursal.cs" />
@@ -211,6 +213,11 @@
     <Content Include="Views\Empleado\Details.cshtml" />
     <Content Include="Views\Empleado\Edit.cshtml" />
     <Content Include="Views\Empleado\Index.cshtml" />
+    <Content Include="Views\ViewComisiones\Create.cshtml" />
+    <Content Include="Views\ViewComisiones\Delete.cshtml" />
+    <Content Include="Views\ViewComisiones\Details.cshtml" />
+    <Content Include="Views\ViewComisiones\Edit.cshtml" />
+    <Content Include="Views\ViewComisiones\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

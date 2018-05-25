@@ -12,5 +12,7 @@ namespace Intranet.Models.Contexto
         public DbSet<Empleado> Empleados { get; set; }
         public DbSet<Sucursal> Sucursales { get; set; }
         public DbSet<FuncionEmple> Funciones { get; set; }
+
+        public System.Data.Entity.DbSet<Intranet.Models.Clases.Consultas.ViewComisiones> ViewComisiones { get; set; }
     }
 }
