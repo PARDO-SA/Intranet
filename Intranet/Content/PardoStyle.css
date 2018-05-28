@@ -109,6 +109,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 
+
 .hidden-xs {
     display: block !important;
 }
@@ -824,6 +825,12 @@ li.menuPAR-izq-active-niv2 {
 .tablaPAR-emple{
     margin-left:5%;
     width:70%;
+}
+
+.tablaPAR-Consultas {
+    font-size: 10px;
+    margin-left: 5%;
+    width: 78%;
 }
 
 .editPAR-titprin{

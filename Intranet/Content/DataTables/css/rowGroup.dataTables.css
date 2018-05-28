@@ -1,0 +1,6 @@
+table.dataTable tr.group td {
+    font-weight: bold;
+    color: white;
+    background-color: #0079C1;
+}
+

@@ -23,7 +23,8 @@ namespace Intranet
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/table.js",
-"~/Scripts/jquery.dataTables.min.js"));
+                      "~/Scripts/DataTables/jquery.dataTables.js",
+                      "~/Scripts/DataTables/dataTables.rowGroup.js"));
 
             //bundles.Add(new StyleBundle("~/Content/css").Include(
             //        "~/Content/bootstrap.css",
@@ -31,7 +32,8 @@ namespace Intranet
 
             bundles.Add(new StyleBundle("~/Content/estilos").Include(
            "~/Content/PardoStyle.css",
-           "~/Content/jquery.dataTables.css"));
+           "~/Content/DataTables/css/jquery.dataTables.css",
+           "~/Content/DataTables/css/rowGroup.dataTables.css"));
 
 
         }
