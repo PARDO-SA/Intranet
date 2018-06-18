@@ -38,9 +38,20 @@
             </tr>
         </thead>
 
+        <tfoot>
+            <tr>
+                <th style="text-align:center" colspan="2">Total General:</th>
+                <th class=".sum"></th>
+                <th class=".sum"></th>
+                <th style="text-align:right"></th>
+                <th style="text-align:right"></th>
+                <th style="text-align:right"></th>
+            </tr>
+        </tfoot>
+
         <tbody>
             @foreach (var item in Model)
-            {
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Sucursal)
@@ -51,23 +62,23 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Funcion)
                 </td>
-                <td align="right">
+                <td style="text-align:right">
                     @Html.DisplayFor(modelItem => item.Cobrado)
                 </td>
-                <td align="right">
+                <td style="text-align:right">
                     @Html.DisplayFor(modelItem => item.ComisionVen)
                 </td>
-                <td align="right">
+                <td style="text-align:right">
                     @Html.DisplayFor(modelItem => item.ComisionSuc)
                 </td>
-                <td align="right">
+                <td style="text-align:right">
                     @Html.DisplayFor(modelItem => item.ACobrar)
                 </td>
-                <td align="right">
+                <td style="text-align:right">
                     @Html.DisplayFor(modelItem => item.RestaCobrar)
                 </td>
             </tr>
-            }
+    }
         </tbody>
     </table>
 </div>

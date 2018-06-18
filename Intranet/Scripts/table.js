@@ -27,7 +27,17 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    var table = $('#tablaComisiones').dataTable({       
+    var table = $('#tablaComisiones').dataTable({
+        table.columns('.sum').every(function () {
+            var sum = this
+                .data()
+                .reduce(function (a, b) {
+                    return a + b;
+                });
+
+            return $(this.footer()).html(sum);
+        });
+
         language: {
             //"url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json",
             "sProcessing": "Procesando...",
@@ -49,16 +59,100 @@ $(document).ready(function () {
                 "sPrevious": "Anterior"
             }
         },
+
+        /*
+        footerCallback: function (tfoot, data, start, end, display) {
+            var api = this.api();
+
+            $(api.column(2).footer()).html(
+                api.column(3).data().sum()
+            );
+
+            $(api.column(3).footer()).html(
+                api.column(4).data().reduce(function (a, b) {
+                    return a + b.replace(/[^\d]/g, '') * 1;
+                }, 0)
+            );
+            $(api.column(4).footer()).html(
+                api.column(5).data().reduce(function (a, b) {
+                    return a + b.replace(/[^\d]/g, '') * 1;
+                }, 0)
+            );
+            $(api.column(5).footer()).html(
+                api.column(6).data().reduce(function (a, b) {
+                    return a + b.replace(/[^\d]/g, '') * 1;
+                }, 0)
+            );
+            $(api.column(6).footer()).html(
+                api.column(7).data().reduce(function (a, b) {
+                    return a + b.replace(/[^\d]/g, '') * 1;
+                }, 0)
+            );
+        },
+*/
+        /*
+                footerCallback: function (tfoot, data, start, end, display) {
+        
+                    var api = this.api();
+        
+                    $(api.column(5).footer()).html(
+                            api.column(5).data().reduce(function (a, b) {
+                                return a + b;
+                            }, 0)
+                        );
+        
+        //            var api = this.api(), data;
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function (i) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '') * 1 :
+                            typeof i === 'number' ?
+                                i : 0;
+                    };
+        
+                    // Total over all pages
+                    totalCobradoBP = api
+                        .data()
+                        .column(2)
+                        .reduce(function (a, b) {
+                            return a + b.replace(/[^\d]/g, '') * 1;
+                        }, 0);
+                    totalCobradoBP = $.fn.dataTable.render.number('.', ',', 0, '$').display(totalCobradoBP);
+        
+                    // Total over all pages
+                    totalComisionVen = api
+                        .data()
+                        .column(3)
+                        .reduce(function (a, b) {
+                            return a + b.replace(/[^\d]/g, '') * 1;
+                        }, 0);
+                    totalComisionVen = $.fn.dataTable.render.number('.', ',', 0, '$').display(totalComisionVen);
+        
+        /*
+                    // Total over this page
+                    pageTotal = api
+                        .column(2, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+                    
+                    // Update footer
+                    $(api.column(2).footer()).html(totalCobradoBP);
+                    $(api.column(3).footer()).html(totalComisionVen);
+        
+                },
+        */
         scrollY: '60vh',
         scrollCollapse: true,
         paging: false,
         columnDefs: [
-            { "visible": false , "targets": 0 }
+            { "visible": false, "targets": 0 }
         ],
-        order: [[0, 'asc'], [2, 'desc'], [1, 'asc']],
+        orderFixed: [[0, 'asc'], [2, 'desc'], [1, 'asc']],
         rowGroup: {
             dataSrc: 0,
-            startRender: null,
+            //startRender: null,
             endRender: function (rows, group) {
                 var cobradoBP = rows
                     .data()
@@ -110,22 +204,22 @@ $(document).ready(function () {
             }
         }
 
-/* Funciona OK
-        "drawCallback": function (settings) {
-            var api = this.api();
-            var rows = api.rows({ page: 'current' }).nodes();
-            var last = null;
-
-            api.column(0, { page: 'current' }).data().each(function (group, i) {
-                if (last !== group) {
-                    $(rows).eq(i).before(
-                        '<tr class="group"><td colspan="7">' + group + '</td></tr>'
-                    );
-                    last = group;
+        /* Funciona OK
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({ page: 'current' }).nodes();
+                    var last = null;
+        
+                    api.column(0, { page: 'current' }).data().each(function (group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before(
+                                '<tr class="group"><td colspan="7">' + group + '</td></tr>'
+                            );
+                            last = group;
+                        }
+                    });
                 }
-            });
-        }
-*/
+        */
     });
 
     // Order by the grouping
